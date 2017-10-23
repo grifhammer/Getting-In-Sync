@@ -1,5 +1,4 @@
 'use strict'
-const Message = require('../lib/message');
 
 module.exports = (logSources, printer) => {
 	logSources.forEach((logSource)=>{
@@ -9,4 +8,5 @@ module.exports = (logSources, printer) => {
 			log = logSource.pop();
 		}
 	})
+	printer.done()
 }
