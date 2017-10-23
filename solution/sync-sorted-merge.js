@@ -1,12 +1,27 @@
 'use strict'
 
 module.exports = (logSources, printer) => {
-	logSources.forEach((logSource)=>{
-		var log = logSource.pop()
-		while(log !== false){
-			printer.print(log);
-			log = logSource.pop();
-		}
+	var logSourceMap = logSources.map((logSource)=>{
+		return {
+			log: logSource.pop(),
+			logSource: logSource
+		};
 	})
+
+	while(true){
+		logSourceMap = logSourceMap.filter((element)=>{
+			return element.log != false;
+		});
+		if(logSourceMap.length === 0){
+			break;
+		}
+
+		logSourceMap = logSourceMap.sort((a, b)=>{
+			return new Date(a.log.date) - new Date(b.log.date);
+		});
+		printer.print(logSourceMap[0].log);
+		logSourceMap[0].log = logSourceMap[0].logSource.pop();
+	}
+
 	printer.done()
 }
