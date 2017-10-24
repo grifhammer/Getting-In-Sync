@@ -16,3 +16,9 @@ We expect candidates to spend 1-3 hours on this exercise.  By the way, you may u
 ## Submission
 
 Simply create a GitHub repo and name it something fun (please don't give it the same name as this repo).  Then email us a link!
+
+## Bottlenecks
+
+In the Async implementation there is a significant bottleneck around making the asynchronous calls for new logs. Since I am keeping ony 1 log in memory at a time I have to make an asynchronous call to get a new message after every print. This could be alleviated if we made more requests and started chaching more logs per logSource. This then would require a bit of a change to the data map that is used to store the logs as well as some fine tuning to find the desired balance between speed/performance and memory usage.
+
+In the synchronous implementation the main bottleneck is around doing a full sort of the data every time we get a new log. This could be made faster by changing this from the initial implementation to just traversing the already sorted logs and inserting the new log where it would fall chronologically. This along with a refactor to allow both synchronous and asynchronous implementations to share some utility code would provide a performance improvement to both solutions.
