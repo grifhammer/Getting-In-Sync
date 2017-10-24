@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/BuildingConnected/interviews.git"
+    "url": "git://github.com/grifhammer/Getting-In-Sync"
   },
-  "author": "",
+  "author": "Griffin Hammer",
   "license": "BSD-2-Clause",
   "bugs": {
-    "url": "https://github.com/BuildingConnected/interviews/issues"
+    "url": "https://github.com/grifhammer/Getting-In-Sync"
   },
-  "homepage": "https://github.com/BuildingConnected/interviews",
+  "homepage": "https://github.com/grifhammer/Getting-In-Sync",
   "dependencies": {
     "Faker": "~0.7.0",
     "bluebird": "^3.4.1",
